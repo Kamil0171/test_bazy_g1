@@ -1,0 +1,60 @@
+select * from postac;
+# komenrzarz
+# zadanie 1
+/* zadanie 1
+select * /
+-- select ...
+# Ctrl + / - dodanie komenrzarza
+select * from postac;
+select * from postac;
+
+
+
+# lab4, zadanie 1a
+select * from postas
+order by data_ur ASC
+where nazwa != 'Bjorn'
+-- and rodzaj = 'wiking'
+order by data_ur ASC
+limit 2;
+delete from postac
+where id_postaci= 3;
+
+#lab 4, zadanie 1b
+alter table postac drop primary key;
+# problem 1 - istnieje klucze obce do tej kolumn
+# tabela przetwory, walizka, ewentualnie izba
+# usuwanie kluczy obcych
+alter table przetwory drop foreign key
+-- 'przetwory_ibfk_1';
+# aby sprawdzić nazwy kluczy obcych 
+show create table przetwory;
+#problem 2 - atrybut auto_increment
+alter table postac modify id_postaci int;
+#drop primary key powinien zadziałać
+alter table postac drop primary key;
+
+# lab4, zadanie 2a
+alter table postac add pesel char(11) first;
+alter table postac add primary key(pesel);
+update postac set pesel = '74631272' + id_postaci;
+select * from postac;
+
+# lab 4, zadanie 2b
+alter table
+# lab 4, zadanie 2c
+insert into
+
+#lab 4, zadanie 3a
+update postac set statek = 'Statek Bjorna'
+where nazwa LIKE '%a%';
+
+select nazwa from postac where nazwa regexp '[a]';
+
+#lab 4, zadanie 3b
+update statek set max_ladownosc=max_ladownosc*0.7
+where data_wodowania >= '1901-01-01'
+and data_wodowania <= '2000-12-31';
+where year(data_wodowania) between 1901 and 2000
+
+select year(data_wodowania) from statek
